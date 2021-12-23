@@ -29,13 +29,13 @@ The project has one main function : **send its GPS coordinate on ham radio APRS 
 
 ### Compile and run
 
-Usage of 
 1. Install [PlatformIO](https://docs.platformio.org/en/latest/installation.html)
 2. Run `git clone https://github.com/f4iha/arduino-ft4x-aprs-tracker && cd ardu-aprs-tracker`
 3. Run `mkdir lib; cd lib; git clone https://bitbucket.org/valentintintin/arduinoqaprs/; cd ..` to download the updated version of ArduinoQAPRS
 4. You have to uncomment `APRS_HW_TYPE_R2R` and comment all the others in `.piolibdeps/ArduinoQAPRS/ArduinoQAPRS.h`
-5. Plug your Arduino nano
-6. Run `pio run --target upload -e nanoprod`
+5. Update with your callsign in _main.cpp_ file and adjust if needed the used APRS symbol (see section **Change the APRS symbol** below for more details)
+6. Plug your Arduino nano
+7. Run `pio run --target upload -e nanoprod`
 
 ##### Notes
 
