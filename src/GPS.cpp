@@ -42,7 +42,4 @@ void GPS::displayInfo() {
     Serial.print(" Spd: "); Serial.print(gps.speed.kmph(), 0);
     Serial.print(" Crs: "); Serial.println(gps.course.deg(), 0);
 
-    delay(2000);
-#ifdef DEBUG
-#endif
 }

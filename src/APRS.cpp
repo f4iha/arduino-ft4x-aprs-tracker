@@ -81,9 +81,6 @@ bool APRS::sendIfPossible(bool forceGps, bool forceTx, int selectedBlinkPin) {
         Serial.print("/"); 
         print_uint64_t(getTimeSecondsForGivenSpeed());
         Serial.println();
-        delay(1000);
-        #ifdef DEBUG
-        #endif
 
         return false;
     } else {
