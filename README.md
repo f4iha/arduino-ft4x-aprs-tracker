@@ -39,7 +39,6 @@ The project has one main function : **send its GPS coordinate on ham radio APRS 
 
 ##### Notes
 
-- There are 2 environments : `nanoprod` and `nanotest` with APRS sent every time even if no GPS signals are locked.
 - The QAPRS lib uses a **R2R resistor network** to generate the sound signal
 
 #### Program flow
