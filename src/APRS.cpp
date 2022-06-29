@@ -115,7 +115,7 @@ uint16_t APRS::getTimeSecondsForGivenSpeed() {
     } else if (lastSpeed >= 20 || lastTx == 0) {
         return 0;
     } else {
-        return 300;
+        return 100;
     }
 }
 
