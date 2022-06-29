@@ -10,7 +10,7 @@
 #define TX_GPS 7 // from GPS to Arduino
 #define PTT_OUT 12
 
-char CALL[] = "CALLSIGN";
+char CALL[] = "F4IHA-9";
 uint8_t callSsid = '9'; // car
 char TO_CALL[] = "APFD01"; // AP = AP Packet + F = France + D01 = department 01 in France
 uint8_t TO_CALL_ID = '0';
@@ -89,7 +89,7 @@ void loop() {
             Serial.println(aprsMarks[stepMark]);
             digitalWrite(stepMark+pinLed,HIGH); 
         }
-        delay(500);
+        delay(200);
     } else {
         button_valid.read();
         aprs.sendIfPossible(isTestMode, isTestMode, selectedPin);     
