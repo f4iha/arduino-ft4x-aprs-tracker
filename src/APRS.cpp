@@ -166,19 +166,19 @@ void APRS::buildPacket() {
     packetBuffer += '!';
 
     // Latitude
-    stringPaddingf(latDegMin, 4, &packetBuffer);
+    stringPaddingf(fabsf(latDegMin), 4, &packetBuffer);
     // Determine N or S
     if (latDegMin >= 0) {
         packetBuffer += 'N';
     } else if (latDegMin < 0) {
-        packetBuffer += 'N';
+        packetBuffer += 'S';
     }
 
     // Separator
     packetBuffer += '/';
 
     // Longitude
-    stringPaddingf(lngDegMin, 5, &packetBuffer);
+    stringPaddingf(fabsf(lngDegMin), 5, &packetBuffer);
     // Determine E or W
     if (lngDegMin >= 0) {
         packetBuffer += 'E';
