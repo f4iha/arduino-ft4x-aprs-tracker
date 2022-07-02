@@ -171,7 +171,7 @@ void APRS::buildPacket() {
     if (latDegMin >= 0) {
         packetBuffer += 'N';
     } else if (latDegMin < 0) {
-        packetBuffer += 'N';
+        packetBuffer += 'S';
     }
 
     // Separator
