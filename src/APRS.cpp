@@ -31,6 +31,7 @@ void APRS::init(char *call, uint8_t callId, char *toCall, uint8_t toCallId, char
 }
 
 bool APRS::txToRadio() {
+    blinkAll(3, this->pinLed , 250, 4);
     Serial.println("TX ...");
 
     digitalWrite(LED_BUILTIN, HIGH);
@@ -221,4 +222,8 @@ bool APRS::sendPosition() {
 
 void APRS::setSymbol(char symbol) {
     this->symbol = symbol;
+}
+
+void APRS::setPinLed(int pinLed){
+    this->pinLed = pinLed;
 }

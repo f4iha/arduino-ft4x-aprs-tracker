@@ -16,12 +16,15 @@ public:
 
     void setSymbol(char symbol);
 
+    void setPinLed(int pinLed);
+
 private:
     GPS *gps = nullptr;
 
     uint8_t lastSpeed = 0;
     uint64_t lastTx = 0;
     uint8_t txPin = 0;
+    int pinLed;
 
     String packetBuffer;
     String comment;
