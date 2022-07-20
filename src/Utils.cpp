@@ -15,11 +15,11 @@ void blinkAll(byte nb, int pinLedBlink, int delayms, int maxStepMark){
     if (pinLedBlink > -1){
         for (byte i = 0; i < nb; i++) {
             for (int tmpLed = pinLedBlink; tmpLed < (pinLedBlink + maxStepMark); tmpLed++){
-                digitalWrite(pinLedBlink, LOW);
+                digitalWrite(tmpLed, HIGH);
             }
             delay(delayms);
             for (int tmpLed = pinLedBlink; tmpLed < (pinLedBlink + maxStepMark); tmpLed++){
-                digitalWrite(pinLedBlink, HIGH);
+                digitalWrite(tmpLed, LOW);
             }
             delay(delayms);
         }

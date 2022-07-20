@@ -56,6 +56,7 @@ void setup() {
 
     aprs.init(CALL, callSsid, TO_CALL, TO_CALL_ID, RELAYS);
     aprs.setComment(APRS_COMMENT);
+    aprs.setPinLed(pinLed);
 
     button_valid.onPressedFor(3000, []() {
         Serial.println("TX Forced");
