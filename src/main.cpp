@@ -10,7 +10,7 @@
 #define TX_GPS 7 // from GPS to Arduino
 #define PTT_OUT 12
 
-char CALL[] = "F4IHA-9";
+char CALL[] = "CALLSIGN";
 uint8_t callSsid = '9'; // car
 char TO_CALL[] = "APFD01"; // AP = AP Packet + F = France + D01 = department 01 in France
 uint8_t TO_CALL_ID = '0';
@@ -22,6 +22,7 @@ bool isTestMode = IS_TEST_MODE;
 
 bool valid_state = false;
 int stepMark = 0;
+int loopInitMode = 0;
 int maxStepMark = 3;
 int pinLed =4 ;
 int selectedPin = pinLed;
@@ -71,7 +72,8 @@ void loop() {
     if(valid_state == false){
         button_valid.read();
         button_select.read();
-        if(button_valid.isPressed()){
+        // if time spend in this selection mode around 20s, we activate with the first mode
+        if(button_valid.isPressed() || loopInitMode > 100){
             valid_state = true;
             selectedPin = stepMark + pinLed;
             blink(10, selectedPin, 50);
@@ -90,6 +92,7 @@ void loop() {
             digitalWrite(stepMark+pinLed,HIGH); 
         }
         delay(200);
+        loopInitMode++;
     } else {
         button_valid.read();
         aprs.sendIfPossible(isTestMode, isTestMode, selectedPin);     
