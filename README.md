@@ -58,3 +58,9 @@ char aprsTypes[] = ">b[";
 ```
 
 This [aprs.net page](http://www.aprs.net/vm/DOS/SYMBOLS.HTM) is giving a good list of the main symbol.
+
+### The PCB
+
+I produce a PCB using through-hole components. This is available in the _pcb_  folder. There are also 3 pin (J8, J9 and J10) which can be used the PTT and the signal needs to remain separated.
+
+![Through-hole PCB](docs/pcb_v1.png)
