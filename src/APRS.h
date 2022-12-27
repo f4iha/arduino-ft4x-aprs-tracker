@@ -18,6 +18,8 @@ public:
 
     void setPinLed(int pinLed);
 
+    void APRS::updateSSID(char *call, uint8_t ssid);
+
 private:
     GPS *gps = nullptr;
 

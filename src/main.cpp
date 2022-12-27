@@ -11,12 +11,13 @@
 #define PTT_OUT 12
 
 char CALL[] = "CALLSIGN";
-uint8_t callSsid = '9'; // car
 char TO_CALL[] = "APFD01"; // AP = AP Packet + F = France + D01 = department 01 in France
 uint8_t TO_CALL_ID = '0';
 char RELAYS[]  = "WIDE1-1,WIDE2-2";
 String aprsMarks[] = { "voiture", "velo", "pieton" };
 char aprsTypes[] = ">b[";
+uint8_t callSsidCar = '9'; // car
+uint8_t callSsidWalk = '7'; // pieton, velo
 
 bool isTestMode = IS_TEST_MODE;
 
@@ -54,7 +55,7 @@ void setup() {
         Serial.println(isTestMode);
     }
 
-    aprs.init(CALL, callSsid, TO_CALL, TO_CALL_ID, RELAYS);
+    aprs.init(CALL, callSsidCar, TO_CALL, TO_CALL_ID, RELAYS);
     aprs.setComment(APRS_COMMENT);
     aprs.setPinLed(pinLed);
 
@@ -81,6 +82,11 @@ void loop() {
             Serial.print("Selected ");
             Serial.println(aprsMarks[stepMark]);
             aprs.setSymbol(aprsTypes[stepMark]);
+            if (stepMark == 0){
+                aprs.updateSSID(CALL, callSsidCar);
+            }else{
+                aprs.updateSSID(CALL, callSsidWalk);
+            }
         }
         if(button_select.isPressed()){
             digitalWrite(stepMark+pinLed,LOW); 

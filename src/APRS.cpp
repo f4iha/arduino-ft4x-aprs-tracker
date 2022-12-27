@@ -227,3 +227,7 @@ void APRS::setSymbol(char symbol) {
 void APRS::setPinLed(int pinLed){
     this->pinLed = pinLed;
 }
+
+void APRS::updateSSID(char *call, uint8_t ssid){
+    QAPRS.setFromAddress(call, ssid);
+}
